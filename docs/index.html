@@ -541,6 +541,234 @@
                         </pre>
                     </div>
                 </div>
+                <h4>Rocket</h4>
+                <div style="width: 100%; height: 400px;">
+                    <canvas id="rocket"></canvas>
+                </div>
+                <script>
+                    var testCanv = CanvMov.getInstance();
+                    testCanv.init({
+                        relativeToWindow: false,
+                        canvasId: 'rocket',
+                        bgImage: {
+                            url: 'img/rocket/rocket-bg.png',
+                            fIndex: -1,
+                        },
+                        images: [
+                            {
+                                url: 'img/rocket/deer.png',
+                                fIndex: 0.5,
+                                fIndexY: 0.1,
+                                positionFromLeft: -5,
+                                positionFromTop: 79
+                            },
+                            {
+                                url: 'img/rocket/dog.png',
+                                fIndex: -0.3,
+                                fIndexY: 0,
+                                positionFromLeft: 60,
+                                positionFromTop: 85
+
+                            },
+                            {
+                                url: 'img/rocket/giraffe.png',
+                                fIndex: 0.3,
+                                fIndexY: 0.2,
+                                positionFromLeft: -2,
+                                positionFromTop: 10
+                            },
+                            {
+                                url: 'img/rocket/rocket.png',
+                                fIndex: -1.2,
+                                fIndexY: -2,
+                                positionFromLeft: 40,
+                                positionFromTop: 50
+                            }
+                        ]
+                    });
+                </script>
+                <div class="language-js highlighter-rouge">
+                    <div class="highlight">
+                        <pre class="highlight">
+                            <code>
+                                var testCanv = CanvMov.getInstance();
+                                testCanv.init({
+                                    relativeToWindow: false,
+                                    canvasId: 'rocket',
+                                    bgImage: {
+                                        url: 'img/rocket/rocket-bg.png',
+                                        fIndex: -1,
+                                    },
+                                    images: [
+                                        {
+                                            url: 'img/rocket/deer.png',
+                                            fIndex: 0.5,
+                                            fIndexY: 0.1,
+                                            positionFromLeft: -5,
+                                            positionFromTop: 79
+                                        },
+                                        {
+                                            url: 'img/rocket/dog.png',
+                                            fIndex: -0.3,
+                                            fIndexY: 0,
+                                            positionFromLeft: 60,
+                                            positionFromTop: 85
+
+                                        },
+                                        {
+                                            url: 'img/rocket/giraffe.png',
+                                            fIndex: 0.3,
+                                            fIndexY: 0.2,
+                                            positionFromLeft: -2,
+                                            positionFromTop: 10
+                                        },
+                                        {
+                                            url: 'img/rocket/rocket.png',
+                                            fIndex: -1.2,
+                                            fIndexY: -2,
+                                            positionFromLeft: 40,
+                                            positionFromTop: 50
+                                        }
+                                    ]
+                                });
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <h4>Aquarium</h4>
+                <div style="width: 100%; height: 300px;">
+                    <canvas id="aquarium"></canvas>
+                </div>
+                <script>
+                    var testCanv2 = CanvMov.getInstance();
+                    testCanv2.init({
+                        relativeToWindow: true,
+                        canvasId: 'aquarium',
+                        bgImage: {
+                            url: 'https://i.imgur.com/NyLnFY1.png',
+                            fIndex: -1,
+                        },
+                        images: [
+                            {
+                                url: 'https://i.imgur.com/gtYkiUv.png',
+                                fIndex: 2,
+                                fIndexY: -0.5,
+                                positionFromLeft: 80,
+                                positionFromTop: 50
+                            },
+                            {
+                                url: 'https://i.imgur.com/yhWv5wZ.png',
+                                fIndex: -1.5,
+                                fIndexY: -0.5,
+                                positionFromLeft: -10,
+                                positionFromTop: 18
+                            },
+                            {
+                                url: 'https://i.imgur.com/RVUzdm0.png',
+                                fIndex: -0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 25,
+                                positionFromTop: 56
+                            },
+                            {
+                                url: 'https://i.imgur.com/Kinr59Q.png',
+                                fIndex: -1.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 50,
+                                positionFromTop: 70
+                            },
+                            {
+                                url: 'https://i.imgur.com/0hK7gOj.png',
+                                fIndex: -0.2,
+                                fIndexY: -0.2,
+                                positionFromLeft: 30,
+                                positionFromTop: 10
+                            },
+                            {
+                                url: 'https://i.imgur.com/b2IcofY.png',
+                                fIndex: 0.9,
+                                fIndexY: -1.2,
+                                positionFromLeft: 50,
+                                positionFromTop: 50
+                            },
+                            {
+                                url: 'https://i.imgur.com/2SXW8AL.png',
+                                fIndex: 0.5,
+                                fIndexY: -0.6,
+                                positionFromLeft: 15,
+                                positionFromTop: 15
+                            }
+                        ]
+                    });
+                </script>
+                <div class="language-js highlighter-rouge">
+                    <div class="highlight">
+                        <pre class="highlight">
+                            <code>
+                                var testCanv2 = CanvMov.getInstance();
+                                testCanv2.init({
+                                    relativeToWindow: true,
+                                    canvasId: 'aquarium',
+                                    bgImage: {
+                                        url: 'https://i.imgur.com/NyLnFY1.png',
+                                        fIndex: -1,
+                                    },
+                                    images: [
+                                        {
+                                            url: 'https://i.imgur.com/gtYkiUv.png',
+                                            fIndex: 2,
+                                            fIndexY: -0.5,
+                                            positionFromLeft: 80,
+                                            positionFromTop: 50
+                                        },
+                                        {
+                                            url: 'https://i.imgur.com/yhWv5wZ.png',
+                                            fIndex: -1.5,
+                                            fIndexY: -0.5,
+                                            positionFromLeft: -10,
+                                            positionFromTop: 18
+                                        },
+                                        {
+                                            url: 'https://i.imgur.com/RVUzdm0.png',
+                                            fIndex: -0.5,
+                                            fIndexY: -0.2,
+                                            positionFromLeft: 25,
+                                            positionFromTop: 56
+                                        },
+                                        {
+                                            url: 'https://i.imgur.com/Kinr59Q.png',
+                                            fIndex: -1.5,
+                                            fIndexY: -0.2,
+                                            positionFromLeft: 50,
+                                            positionFromTop: 70
+                                        },
+                                        {
+                                            url: 'https://i.imgur.com/0hK7gOj.png',
+                                            fIndex: -0.2,
+                                            fIndexY: -0.2,
+                                            positionFromLeft: 30,
+                                            positionFromTop: 10
+                                        },
+                                        {
+                                            url: 'https://i.imgur.com/b2IcofY.png',
+                                            fIndex: 0.9,
+                                            fIndexY: -1.2,
+                                            positionFromLeft: 50,
+                                            positionFromTop: 50
+                                        },
+                                        {
+                                            url: 'https://i.imgur.com/2SXW8AL.png',
+                                            fIndex: 0.5,
+                                            fIndexY: -0.6,
+                                            positionFromLeft: 15,
+                                            positionFromTop: 15
+                                        }
+                                    ]
+                                });
+                            </code>
+                        </pre>
+                    </div>
+                </div>
             </section>
         </div>
     </body>
