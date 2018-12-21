@@ -1,22 +1,442 @@
 <html>
     <head>
-        <script src="../src/canvmov.js"></script>
-        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <script src="../src/canvmov.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://pages-themes.github.io/modernist/assets/css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     </head>
     <body>
         <div class="wrapper">
             <header>
                 <h1>Canvmov</h1>
-                <p>CanvMov object to create a beautiful moved blocks in your html</p>
+                <p>very lightweight CanvMov object to create a beautiful moved blocks in your html</p>
                 <ul>
                     <li>
-                        <a href="#">Download <strong>ZIP File</strong></a>
+                        <a href="https://github.com/abrorAbdullaev/canvmov/archive/master.zip">Download <strong>ZIP File</strong></a>
                     </li>
                     <li>
-                        <a href="#">View On <strong>GitHub</strong></a>
+                        <a target="_blank" href="https://github.com/abrorAbdullaev/canvmov">View On <strong>GitHub</strong></a>
                     </li>
                 </ul>
             </header>
+            <section id="prerequisite">
+                <h2>Prerequisite</h2>
+                <p>
+                    The library is not dependant on any external library like jQuery.
+                </p>
+            </section>
+            <section id="introduction">
+                <h2>Intorduction</h2>
+                <p>
+                    To start using the library you will have to include the source code in your page's head
+                    or in any place under script tags
+                </p>
+                <div class="language-js highlighter-rouge">
+                    <div class="highlight">
+                        <pre class="highlight">
+                            <code>
+                                <span>&#60;script src="{base_url}/js/canvmov.js" /&#62;</span>
+                                <span class="c1">// or</span>
+                                <span>&#60;script src="{base_url}/js/canvmov.min.js" /&#62;</span>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <h3>Initialize the block</h3>
+                <p>To initialize the canvmov you will have to prepare the markup for it</p>
+                <div class="language-js highlighter-rouge">
+                    <div class="highlight">
+                        <pre class="highlight">
+                            <code>
+                                <span>&#60;div style="width: 100%; height: 400px"&#62;</span>
+                                <span>    &#60;canvas id="testCanvas1" /&#62;</span>
+                                <span>&#60;/div&#62;</span>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <p>
+                    The width and height styles for the parent element are to be set, in order to manage the block's size.
+                    When the html ready, you need to initialize the js object.
+                </p>
+                <div class="language-js highlighter-rouge">
+                    <div class="highlight">
+                        <pre class="highlight">
+                            <code>
+                                <span>&#60;script&#62;</span>
+                                <span>    var testCanv1 = CanvMov.getInstance();</span>
+                                <span class="c1">    // About options read further</span>
+                                <span>    testCanv1.init({ `options` })</span>
+                                <span>&#60;/script&#62;</span>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </section>
+            <section id="options">
+                <h2>Options</h2>
+                <p>
+                    The CanvMov object need options to be initialized. The options contain the urls to the images,
+                    their positioning etc...
+                </p>
+                <p>Here is the initial options object that needs to be extended</p>
+                <div class="language-js highlighter-rouge">
+                    <div class="highlight">
+                        <pre class="highlight">
+                            <code>
+                                <span class="kd">options : {</span>
+                                <span class="kd">    width: window.innerWidth,</span>
+                                <span class="kd">    height: window.innerHeight,</span>
+                                <span class="kd">    relativeToWindow: false,</span>
+                                <span class="kd">    images: {},</span>
+                                <span class="kd">    centerX: '',</span>
+                                <span class="kd">    centerY: '',</span>
+                                <span class="kd">    canvasId: '',</span>
+                                <span class="kd">    bgImage: {,</span>
+                                <span class="kd">        url: '',</span>
+                                <span class="kd">        fIndex: 0</span>
+                                <span class="kd">    },</span>
+                                <span class="kd">}</span>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <p>
+                    'images' parameter should be an array and each array object should contain following params
+                </p>
+                <div class="language-js highlighter-rouge">
+                    <div class="highlight">
+                        <pre class="highlight">
+                            <code>
+                                <span class="kd">images : [</span>
+                                <span class="kd">    {</span>
+                                <span class="kd">        url: "{url to the image}",</span>
+                                <span class="kd">        fIndex: 0</span>
+                                <span class="kd">        fIndexY: 0</span>
+                                <span class="kd">        positionFromLeft: 0</span>
+                                <span class="kd">        positionFromTop: 0</span>
+                                <span class="kd">    }</span>
+                                <span class="kd">]</span>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <p>Not all of these options need to be overwritten though.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align: left">Option Name</th>
+                            <th style="text-align: left">Option details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: left">width</td>
+                            <td style="text-align: left">No need to extend, calculated based on parent's size</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">height</td>
+                            <td style="text-align: left">No need to extend, calculated based on parent's size</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">relativeToWindow</td>
+                            <td style="text-align: left">Defines if the movement is done anytime when mouse is moved or only when the mouse moves inside canvas's area</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">centerX</td>
+                            <td style="text-align: left">No need to extend, calculated based on parent's size</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">centerY</td>
+                            <td style="text-align: left">No need to extend, calculated based on parent's size</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">canvasId</td>
+                            <td style="text-align: left">The id of the canvas element where the images will be rendered</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">bgImage</td>
+                            <td style="text-align: left">The object containing the background image object</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">bgImage => url</td>
+                            <td style="text-align: left">url to the background image</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">bgImage => fIndex</td>
+                            <td style="text-align: left">
+                                The sensitivity of the background image to the mouse movement.
+                                In other words, the speed of the movement.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">images</td>
+                            <td style="text-align: left">
+                                An array containing the images information
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">images => url</td>
+                            <td style="text-align: left">url to the image</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">images => fIndex</td>
+                            <td style="text-align: left">
+                                The sensitivity of the background image to the mouse movement.
+                                In other words, the speed of the movement in horizontal perspective.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">images => fIndexY</td>
+                            <td style="text-align: left">
+                                The sensitivity of the background image to the mouse movement.
+                                In other words, the speed of the movement in vertical perspective.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">images => positionFromLeft</td>
+                            <td style="text-align: left">
+                                Position from the left edge of the canvas.
+                                <strong>Note:</strong>
+                                The position should be number representing the percentage.
+                                i.e: positionFromLeft: 50 // The image will be rendered from the center of the canvas
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left">images => positionFromTop</td>
+                            <td style="text-align: left">
+                                Position from the top edge of the canvas.
+                                <strong>Note:</strong>
+                                The position should be number representing the percentage.
+                                i.e: positionFromLeft: 50 // The image will be rendered from the center of the canvas
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    See the examples of the extended options in the <a href="#samples">samples</a> section
+                </p>
+            </section>
+            <section id="samples">
+                <h2>Samples</h2>
+                <h4>Flying Santa</h4>
+                <div style="width: 100%; height: 300px">
+                    <canvas id="flying_santa"></canvas>
+                </div>
+                <script>
+                    var flyingSanta = CanvMov.getInstance();
+                    flyingSanta.init({
+                        canvasId: 'flying_santa',
+                        relativeToWindow: true,
+                        bgImage: {
+                            url: "img/flyingsanta/flying-bg.svg",
+                            fIndex: 2
+                        },
+                        images: [
+                            {
+                                url: "img/flyingsanta/cloud.svg",
+                                fIndex: -0.4,
+                                fIndexY: 0,
+                                positionFromLeft: 60,
+                                positionFromTop: 7
+                            },
+                            {
+                                url: "img/flyingsanta/cloud.svg",
+                                fIndex: -0.8,
+                                fIndexY: 0,
+                                positionFromLeft: 25,
+                                positionFromTop: 13
+                            },
+                            {
+                                url: "img/flyingsanta/cloud.svg",
+                                fIndex: -0.6,
+                                fIndexY: 0,
+                                positionFromLeft: 40,
+                                positionFromTop: 10
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 80,
+                                positionFromTop: 28
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: -5,
+                                positionFromTop: 10
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: -5,
+                                positionFromTop: 10
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 35,
+                                positionFromTop: 6
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 55,
+                                positionFromTop: 11
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 10,
+                                positionFromTop: 25
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake-blur.svg",
+                                fIndex: 0.1,
+                                fIndexY: -0.1,
+                                positionFromLeft: -7,
+                                positionFromTop: 25
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake-blur.svg",
+                                fIndex: 0.1,
+                                fIndexY: -0.1,
+                                positionFromLeft: 65,
+                                positionFromTop: -45
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake-blur.svg",
+                                fIndex: 0.1,
+                                fIndexY: -0.1,
+                                positionFromLeft: 15,
+                                positionFromTop: -55
+                            },
+                            {
+                                url: "img/flyingsanta/santa.svg",
+                                fIndex: -2,
+                                fIndexY: -0.5,
+                                positionFromLeft: 50,
+                                positionFromTop: 50
+                            }
+                        ]
+                    });
+                </script>
+                <div class="language-js highlighter-rouge">
+                    <div class="highlight">
+                        <pre class="highlight">
+                            <code>
+                                var flyingSanta = CanvMov.getInstance();
+                                flyingSanta.init({
+                                    canvasId: 'flying_santa',
+                                    relativeToWindow: true,
+                                    bgImage: {
+                                        url: "img/flyingsanta/flying-bg.svg",
+                                        fIndex: 2
+                                    },
+                                    images: [
+                                        {
+                                            url: "img/flyingsanta/cloud.svg",
+                                            fIndex: -0.4,
+                                            fIndexY: 0,
+                                            positionFromLeft: 60,
+                                            positionFromTop: 7
+                                        },
+                                        {
+                                            url: "img/flyingsanta/cloud.svg",
+                                            fIndex: -0.8,
+                                            fIndexY: 0,
+                                            positionFromLeft: 25,
+                                            positionFromTop: 13
+                                        },
+                                        {
+                                            url: "img/flyingsanta/cloud.svg",
+                                            fIndex: -0.6,
+                                            fIndexY: 0,
+                                            positionFromLeft: 40,
+                                            positionFromTop: 10
+                                        },
+                                        {
+                                            url: "img/flyingsanta/snowflake.svg",
+                                            fIndex: 0.5,
+                                            fIndexY: -0.2,
+                                            positionFromLeft: 80,
+                                            positionFromTop: 28
+                                        },
+                                        {
+                                            url: "img/flyingsanta/snowflake.svg",
+                                            fIndex: 0.5,
+                                            fIndexY: -0.2,
+                                            positionFromLeft: -5,
+                                            positionFromTop: 10
+                                        },
+                                        {
+                                            url: "img/flyingsanta/snowflake.svg",
+                                            fIndex: 0.5,
+                                            fIndexY: -0.2,
+                                            positionFromLeft: -5,
+                                            positionFromTop: 10
+                                        },
+                                        {
+                                            url: "img/flyingsanta/snowflake.svg",
+                                            fIndex: 0.5,
+                                            fIndexY: -0.2,
+                                            positionFromLeft: 35,
+                                            positionFromTop: 6
+                                        },
+                                        {
+                                            url: "img/flyingsanta/snowflake.svg",
+                                            fIndex: 0.5,
+                                            fIndexY: -0.2,
+                                            positionFromLeft: 55,
+                                            positionFromTop: 11
+                                        },
+                                        {
+                                            url: "img/flyingsanta/snowflake.svg",
+                                            fIndex: 0.5,
+                                            fIndexY: -0.2,
+                                            positionFromLeft: 10,
+                                            positionFromTop: 25
+                                        },
+                                        {
+                                            url: "img/flyingsanta/snowflake-blur.svg",
+                                            fIndex: 0.1,
+                                            fIndexY: -0.1,
+                                            positionFromLeft: -7,
+                                            positionFromTop: 25
+                                        },
+                                        {
+                                            url: "img/flyingsanta/snowflake-blur.svg",
+                                            fIndex: 0.1,
+                                            fIndexY: -0.1,
+                                            positionFromLeft: 65,
+                                            positionFromTop: -45
+                                        },
+                                        {
+                                            url: "img/flyingsanta/snowflake-blur.svg",
+                                            fIndex: 0.1,
+                                            fIndexY: -0.1,
+                                            positionFromLeft: 15,
+                                            positionFromTop: -55
+                                        },
+                                        {
+                                            url: "img/flyingsanta/santa.svg",
+                                            fIndex: -2,
+                                            fIndexY: -0.5,
+                                            positionFromLeft: 50,
+                                            positionFromTop: 50
+                                        }
+                                    ]
+                                });
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </section>
         </div>
     </body>
 </html>
