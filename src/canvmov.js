@@ -94,11 +94,13 @@ var CanvMov = {
 			var newX = _this.options.images[i].positionFromLeft + (mouseDelta * _this.options.images[i].fIndex),
 				newY = _this.options.images[i].positionFromTop + (mouseDeltaY * _this.options.images[i].fIndexY);
 
-			_this.context.drawImage(
-				_this.options.images[i].ImageObject,
-				newX,
-				newY
-			);
+            if (typeof _this.options.images[i].ImageObject !== 'undefined') {
+                _this.context.drawImage(
+                    _this.options.images[i].ImageObject,
+                    newX,
+                    newY
+                );
+            }
 		};
 	},
 	getInstance: function() {
@@ -115,7 +117,7 @@ var CanvMov = {
             delta = this.options.relativeToWindow ?
                 parseInt(100 * (mouseX / (window.outerWidth / 2))) - 100 :
                 parseInt(100 * ((mouseX - this.canvas.getBoundingClientRect().x) / this.options.centerX)) - 100;
-			
+
 			return delta;
 	},
 	_calcDeltaY: function(e) {
