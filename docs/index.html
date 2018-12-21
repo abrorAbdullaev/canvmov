@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src="js/canvmov.min.js"></script>
+        <script src="js/canvmov.js"></script>
         <link rel="stylesheet" type="text/css" href="https://pages-themes.github.io/modernist/assets/css/style.css"/>
         <link rel="stylesheet" type="text/css" href="css/styles.css"/>
     </head>
@@ -20,9 +20,7 @@
             </header>
             <section id="prerequisite">
                 <h2>Prerequisite</h2>
-                <p>
-                    The library is not dependant on any external library like jQuery.
-                </p>
+                <p>The library is not dependant on any external library like jQuery.</p>
             </section>
             <section id="introduction">
                 <h2>Intorduction</h2>
@@ -219,14 +217,121 @@
             <section id="samples">
                 <h2>Samples</h2>
                 <h4>Flying Santa</h4>
+                <div style="width: 100%; height: 300px;">
+                    <canvas id="flying_santa_window"></canvas>
+                </div>
+                <p><strong>Relative to window</strong></p>
                 <div style="width: 100%; height: 300px">
                     <canvas id="flying_santa"></canvas>
                 </div>
+                <p><strong>Relative to the canvas</strong></p>
                 <script>
+                    var flyingSantaWindow = CanvMov.getInstance();
+                    flyingSantaWindow.init({
+                        canvasId: 'flying_santa_window',
+                        relativeToWindow: true,
+                        bgImage: {
+                            url: "img/flyingsanta/flying-bg.svg",
+                            fIndex: 2
+                        },
+                        images: [
+                            {
+                                url: "img/flyingsanta/cloud.svg",
+                                fIndex: -0.4,
+                                fIndexY: 0,
+                                positionFromLeft: 60,
+                                positionFromTop: 7
+                            },
+                            {
+                                url: "img/flyingsanta/cloud.svg",
+                                fIndex: -0.8,
+                                fIndexY: 0,
+                                positionFromLeft: 25,
+                                positionFromTop: 13
+                            },
+                            {
+                                url: "img/flyingsanta/cloud.svg",
+                                fIndex: -0.6,
+                                fIndexY: 0,
+                                positionFromLeft: 40,
+                                positionFromTop: 10
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 80,
+                                positionFromTop: 28
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: -5,
+                                positionFromTop: 10
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: -5,
+                                positionFromTop: 10
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 35,
+                                positionFromTop: 6
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 55,
+                                positionFromTop: 11
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake.svg",
+                                fIndex: 0.5,
+                                fIndexY: -0.2,
+                                positionFromLeft: 10,
+                                positionFromTop: 25
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake-blur.svg",
+                                fIndex: 0.1,
+                                fIndexY: -0.1,
+                                positionFromLeft: -7,
+                                positionFromTop: 25
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake-blur.svg",
+                                fIndex: 0.1,
+                                fIndexY: -0.1,
+                                positionFromLeft: 65,
+                                positionFromTop: -45
+                            },
+                            {
+                                url: "img/flyingsanta/snowflake-blur.svg",
+                                fIndex: 0.1,
+                                fIndexY: -0.1,
+                                positionFromLeft: 15,
+                                positionFromTop: -55
+                            },
+                            {
+                                url: "img/flyingsanta/santa.svg",
+                                fIndex: -2,
+                                fIndexY: -0.5,
+                                positionFromLeft: 50,
+                                positionFromTop: 50
+                            }
+                        ]
+                    });
                     var flyingSanta = CanvMov.getInstance();
                     flyingSanta.init({
                         canvasId: 'flying_santa',
-                        relativeToWindow: true,
+                        relativeToWindow: false,
                         bgImage: {
                             url: "img/flyingsanta/flying-bg.svg",
                             fIndex: 2
@@ -333,7 +438,7 @@
                                 var flyingSanta = CanvMov.getInstance();
                                 flyingSanta.init({
                                     canvasId: 'flying_santa',
-                                    relativeToWindow: true,
+                                    relativeToWindow: false,
                                     bgImage: {
                                         url: "img/flyingsanta/flying-bg.svg",
                                         fIndex: 2

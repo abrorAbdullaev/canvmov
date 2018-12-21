@@ -112,7 +112,9 @@ var CanvMov = {
 	},
 	_calcDelta: function(e) {
 		var mouseX = e.clientX,
-			delta = parseInt(100 * (mouseX / this.options.centerX)) - 100;
+            delta = this.options.relativeToWindow ?
+                parseInt(100 * (mouseX / (window.outerWidth / 2))) - 100 :
+                parseInt(100 * ((mouseX - this.canvas.getBoundingClientRect().x) / this.options.centerX)) - 100;
 			
 			return delta;
 	},
