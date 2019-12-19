@@ -5,6 +5,10 @@
 ### Licence
 GNU GENERAL PUBLIC LICENSE
 
+### Geteing Started
+Include the canvmov from Github CDN
+`https://cdn.jsdelivr.net/gh/abrorAbdullaev/canvmov/src/canvmov.min.js`, take a look to the <a target="_blank" href="https://abrorabdullaev.github.io/canvmov/index.html">documentation</a> and you are ready to go!
+
 ### Documentation
 Documentation is available <a target="_blank" href="https://abrorabdullaev.github.io/canvmov/index.html">here</a>
 
