@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Star Wars Poster Example</title>
+    <script src="https://cdn.jsdelivr.net/gh/abrorAbdullaev/canvmov/src/canvmov.min.js"></script>
+    <style>
+      .canvas-wrapper {
+        max-width: 1500px;
+        height: 600px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas-wrapper">
+      <canvas id="swVader" />
+    </div>
+
+    <script type="text/javascript">
+      var swVader = CanvMov.getInstance();
+
+      swVader.init({
+        canvasId: 'swVader',
+        relativeToWindow: true,
+        bgImage: {
+          url: './images/bg.jpg',
+          fIndex: 0.2
+        },
+        images: [
+          {
+            url: './images/deathStar.png',
+            fIndex: 1,
+            fIndexY: 0.2,
+            positionFromLeft: 15,
+            positionFromTop: 10
+          },
+          {
+            url: './images/vader.png',
+            fIndex: 0.4,
+            fIndexY: 0.7,
+            positionFromLeft: -7,
+            positionFromTop: 20
+          },
+          {
+            url: './images/xwings.png',
+            fIndex: 1.9,
+            fIndexY: 0.7,
+            positionFromLeft: 60,
+            positionFromTop: 15
+          },
+          {
+            url: './images/xwings.png',
+            fIndex: 1.5,
+            fIndexY: 0.4,
+            positionFromLeft: 45,
+            positionFromTop: 5
+          },
+          {
+            url: './images/skywalker.png',
+            fIndex: 0.8,
+            fIndexY: 0.4,
+            positionFromLeft: 70,
+            positionFromTop: 55
+          },
+          {
+            url: './images/c3po.png',
+            fIndex: 0.6,
+            fIndexY: 0.3,
+            positionFromLeft: 60,
+            positionFromTop: 65
+          },
+          {
+            url: './images/r2d2.png',
+            fIndex: 0.4,
+            fIndexY: 0.2,
+            positionFromLeft: 55,
+            positionFromTop: 75
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
